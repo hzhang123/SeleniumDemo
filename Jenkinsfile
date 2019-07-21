@@ -1,9 +1,8 @@
 pipeline {
-    agent { label 'java' }
     stages {
         stage('Build') {
             steps {
-                sh './mvn -Dmaven.test.failure.ignore=true clean verify site'
+                sh 'mvn -Dmaven.test.failure.ignore=true clean verify site'
             }
         }
          stage('Report') {
