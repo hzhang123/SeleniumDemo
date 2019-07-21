@@ -1,21 +1,14 @@
 pipeline {
-    agent any
+    agent { label 'java' }
     stages {
         stage('Build') {
             steps {
-                bat 'mvn -Dmaven.test.failure.ignore=true clean verify site'
+                sh './mvnw -Dmaven.test.failure.ignore=true clean verify site'
             }
         }
-        stage('reports') {
+        stage('Report') {
             steps {
-                script {
-                        allure([
-                                includeProperties: false,
-                                properties: [],
-                                reportBuildPolicy: 'ALWAYS',
-                                results: [[path: 'target/allure-results']]
-                        ])
-                }
+                allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
             }
         }
     }
