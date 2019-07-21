@@ -3,12 +3,20 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './mvnw -Dmaven.test.failure.ignore=true clean verify site'
+                bat 'mvn -Dmaven.test.failure.ignore=true clean verify site'
             }
         }
-        stage('Report') {
+        stage('reports') {
             steps {
-                allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
+                script {
+                        allure([
+                                includeProperties: false,
+                                jdk: '',
+                                properties: [],
+                                reportBuildPolicy: 'ALWAYS',
+                                results: [[path: 'target/allure-results']]
+                        ])
+                }
             }
         }
     }
