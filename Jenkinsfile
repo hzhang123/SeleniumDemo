@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true clean verify site'
+                bat 'mvn -Dmaven.test.failure.ignore=true clean verify site'
             }
         }
          stage('Report') {
