@@ -6,12 +6,18 @@ pipeline {
                 bat 'mvn -Dmaven.test.failure.ignore=true clean verify site'
             }
         }
-         stage('Report') {
-                    steps {
-                        publishHTML([reportName  : 'Allure Report', reportDir: 'target/site/allure-maven-plugin', reportFiles: 'index.html',
-                                     reportTitles: '', allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false])
-                    }
+        stage('reports') {
+            steps {
+                script {
+                        allure([
+                                includeProperties: false,
+                                properties: [],
+                                reportBuildPolicy: 'ALWAYS',
+                                results: [[path: 'target/allure-results']]
+                        ])
                 }
+            }
+        }
     }
     post {
         always {
