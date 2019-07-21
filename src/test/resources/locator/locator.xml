@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages>
+    <!-- 登录界面 -->
+    <page pageName="Login" url="https://www.baidu.com/" defaultTimeOut="1">
+        <!--<locate name="" by="" value="" timeOut=""/>-->
+        <locator name="用户名" by="id" value="123" timeOut="3"/>
+    </page>
+</pages>

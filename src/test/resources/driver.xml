@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  driverIndex标识获取对应与name节点的index相同的浏览器驱动 -->
+<driver driverIndex="0">
+
+    <!-- 谷歌浏览器配置文件 -->
+    <name value="org.openqa.selenium.chrome.ChromeDriver" index="0">
+        <!-- name驱动类，value驱动路径，{default.driver.path}会自动替换为当前项目src/test/resources -->
+        <properties>
+            <property name="webdriver.chrome.driver" value="{default.driver.path}/driver/chromedriver.exe" />
+        </properties>
+        <!-- chrome的路径 -->
+        <options>
+            <option type="binary">C:\Program Files (x86)\Google\Chrome\Application\chrome.exe</option>
+        </options>
+    </name>
+
+    <!-- 火狐浏览器 对应的selenium3.x版本 的配置文件 -->
+    <name value="org.openqa.selenium.firefox.FirefoxDriver"
+          seleniumVersion="3.x" index="1">
+        <properties>
+            <property name="SystemProperty.BROWSER_BINARY"
+                      value="C:\Program
+        Files (x86)\Mozilla Firefox\firefox.exe" />
+            <property
+                    name="webdriver.gecko.driver"
+                    value="E:/driver/geckodriver.exe" />
+        </properties>
+    </name>
+
+    <!-- 火狐浏览器 对应的selenium2.x版本 的配置文件 -->
+    <name value="org.openqa.selenium.firefox.FirefoxDriver"
+          seleniumVersion="2.x" index="2">
+        <properties>
+            <property name="SystemProperty.BROWSER_BINARY"
+                      value="C:\Program
+        Files (x86)\Mozilla Firefox\firefox.exe" />
+        </properties>
+    </name>
+
+    <!--IE浏览器配置文件 -->
+    <name value="org.openqa.selenium.ie.InternetExplorerDriver"
+          index="3">
+        <properties>
+            <property
+                    name="webdriver.ie.driver"
+                    value="{default.driver.path}\driver\IEDriverServer.exe" />
+        </properties>
+        <capabilities>
+            <!-- name能力，value能力的值，type能力值的数据类型 -->
+            <capability
+                    name="InternetExplorerDriver.IGNORE_ZOOM_SETTING"
+                    type="boolean"
+                    value="true" />
+            <capability
+                    name="InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS"
+                    type="boolean"
+                    value="true" />
+        </capabilities>
+    </name>
+</driver>

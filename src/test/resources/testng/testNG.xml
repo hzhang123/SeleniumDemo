@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MyProjectSuite" parallel="classes" thread-count="1">
+    <test verbose="2" preserve-order="true" name="登录测试">
+        <classes>
+            <class name="per.hao.cases.zendao.login.LoginTest" />
+        </classes>
+    </test>
+    <test name="百度测试">
+        <classes>
+            <class name="per.hao.cases.BaiDuExampleTest" />
+        </classes>
+    </test>
+
+    <listeners>
+        <!-- 数据源监听(修改@Test注解中的部分配置) -->
+        <listener class-name="per.hao.listener.DataSourceListener"/>
+        <!-- 失败用例截图 -->
+        <listener class-name="per.hao.listener.TestFaildListener"/>
+    </listeners>
+</suite>

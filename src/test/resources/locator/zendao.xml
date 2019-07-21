@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages>
+    <!-- 百度查询 -->
+    <!-- pageName: 页面名称，代码中每次跳转到新界面使用pageName来切换到本界面的定位器集合，或者使用pageName打开界面等等 -->
+    <!-- url: 为这个界面的url，open("pageName")的时候回查找该url并打开 -->
+    <!-- defaultTimeOut: 默认查找元素超时时间，必填 -->
+    <!--<page pageName="" url="https://www.baidu.com/" defaultTimeOut="2">-->
+    <page pageName="百度首页" url="https://www.baidu.com/" defaultTimeOut="2">
+        <!-- name: 定位器的名称，代码中，使用定位器名称去指定操作界面上根据定位器查找到的元素 -->
+        <!-- by: 定位方法。可选 id linkText name xpath className cssSelector partialLinkText tagName
+       为By类中方法的名称，通过这个属性反射获取并调用的方法 -->
+        <!-- vanle: -->
+        <!--  timeOut: 如果不填，默认查找超时时间使用page节点的 defaultTimeOut，defaultTimeOut必填-->
+        <!-- <locator name="" by="" value="" timeOut=""/> -->
+        <!-- <locator name="" by="" value="" /> -->
+        <locator name="查询框" by="id" value="kw" timeOut="3"/>
+        <locator name="百度一下" by="id" value="su" timeOut="3"/>
+    </page>
+    <!-- 禅道登录界面 -->
+    <page pageName="LoginPage" url="http://192.168.2.3/zentao/user-login.html" defaultTimeOut="2">
+        <locator name="用户名" by="id" value="account" timeOut="3"/>
+        <locator name="密码" by="name" value="password"/>
+        <locator name="登录" by="id" value="submit" timeOut="3"/>
+        <locator name="忘记密码" by="linkText" value="忘记密码"/>
+    </page>
+
+    <!-- 禅道首页 -->
+    <page pageName="HomePage" url="http://192.168.2.3/zentao/my/" defaultTimeOut="2">
+        <locator name="用户姓名" by="xpath" value="//*[@id='userNav']/li/a/span[1]" timeOut="3"/>
+        <locator name="系统下拉框" by="xpath" value="//*[@id='userNav']/li/a"/>
+        <locator name="退出" by="xpath" value="//*[@id='userNav']/li/ul/li[13]/a" timeOut="3"/>
+    </page>
+
+</pages>
